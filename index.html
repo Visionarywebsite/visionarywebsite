@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>VISIONARY WEBSITE</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/VPLUS.png">
+</head>
+<body>
+  <!-- Menu Bar -->
+  <nav class="navbar">
+    <img src="assets/LOGO.png" alt="Logo" class="logo-bg">
+    <div class="nav-title">VISIONARY WEBSITE</div>
+    <img src="assets/VPLUS.png" alt="VPLUS Icon" class="vplus-icon">
+  </nav>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search by artist or title...">
+    <div id="suggestions"></div>
+  </div>
+
+  <!-- Songs List -->
+  <div class="songs-list" id="songsList">
+    <!-- Songs will be rendered here by script.js -->
+  </div>
+
+  <!-- Contact/About Bar -->
+  <footer>
+    <div class="footer-bar">
+      <button id="contactBtn">Contact Us</button>
+      <button id="aboutBtn">About Us</button>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <div id="modal" class="modal">
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <!-- Admin Upload (hidden by default) -->
+  <div id="adminUpload" class="admin-upload">
+    <h2>Upload New Song</h2>
+    <form id="uploadForm">
+      <input type="text" id="artistName" placeholder="Artist Name" required>
+      <input type="text" id="songTitle" placeholder="Song Title" required>
+      <input type="text" id="producerName" placeholder="Producer Name" required>
+      <input type="file" id="audioFile" accept="audio/*" required>
+      <input type="file" id="artworkFile" accept="image/*" required>
+      <button type="submit">Upload</button>
+    </form>
+    <div id="uploadResult"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
