@@ -1,39 +1,55 @@
 // --- SONG DATA ---
 // You can later fetch this from a backend/database.
-let songs = [];
-
-// Fetch songs from backend
-async function fetchSongs() {
-  const res = await fetch('/api/songs');
-  songs = await res.json();
-  renderSongs(songs);
-}
-fetchSongs();
-
-// ...existing renderSongs, openSongModal, etc...
-
-// Admin upload
-document.getElementById('uploadForm').onsubmit = async function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-
-  const res = await fetch('/api/upload', {
-    method: 'POST',
-    body: data
-  });
-  const result = await res.json();
-  if (result.success) {
-    document.getElementById('uploadResult').innerHTML = `
-      <div>Song uploaded! Share this link:<br>
-      <input style="width:90%;" value="${window.location.origin}${window.location.pathname}?song=${result.song.id}" readonly></div>
-    `;
-    fetchSongs();
-    form.reset();
-  } else {
-    document.getElementById('uploadResult').textContent = result.error || 'Upload failed.';
+const songs = [
+  {
+    id: 'cacoon-Ndani',
+    artist: 'Cacoon Vocalist',
+    title: 'Ndani',
+    producer: 'Prodby Vplus',
+    audio: 'assets/Cacoon Vocalist-Ndani.Prodby Vplus.mp3',
+    artwork: 'assets/@108_CacoonVocalist-1.jpg',
+    downloads: 0,
+    views: 0,
+    plays: 0,
+    shares: 0
+  },
+  {
+    id: 'cacoon-tiimbe',
+    artist: 'Cacoon Vocalist',
+    title: 'Tiimbe Choir',
+    producer: 'Prodby Vplus',
+    audio: 'assets/Cacoon Vocalist-Tiimbe Choir.Prodby Vplus.mp3',
+    artwork: 'assets/@0060_Cacoon4.jpg',
+    downloads: 0,
+    views: 0,
+    plays: 0,
+    shares: 0
+  },
+  {
+    id: 'inno-liyana',
+    artist: 'Inno Side',
+    title: 'Liyana',
+    producer: 'Prodby Vplus',
+    audio: 'assets/Inno Side-Liyana.Prodby Vplus.mp3',
+    artwork: 'assets/@0060_INNOSIDE.jpg',
+    downloads: 0,
+    views: 0,
+    plays: 0,
+    shares: 0
+  },
+  {
+    id: 'lilellz-guluu',
+    artist: 'Lil Ells',
+    title: 'Guluu',
+    producer: 'Prodby Vplus',
+    audio: 'assets/Lil Ellz-Guluu.Prodby Vplus.mp3',
+    artwork: 'assets/@0063_Lilellz1.jpg',
+    downloads: 0,
+    views: 0,
+    plays: 0,
+    shares: 0
   }
-};
+];
 
 // --- ADMIN LOGIN (for demo, use a simple prompt) ---
 let isAdmin = false;
